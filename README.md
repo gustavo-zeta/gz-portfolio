@@ -1,40 +1,26 @@
 # Gustavo Zeta — Portfolio
 
-Personal portfolio for a game/engine (C++) and web (React + TypeScript) developer.
-Glassmorphism over a live Three.js scene, obsidian + bone + signal-red brand.
+Personal portfolio of Gustavo Zeta, a Brazilian developer building game engines in C++ and web experiences with React and TypeScript.
 
-## Stack
+The site brings together selected projects, background, skills, and a little of the creative work that shapes how I build. It features an interactive Three.js scene and a visual identity inspired by obsidian, bone, and signal red.
 
-- Vite + React 19 + TypeScript (strict)
-- Tailwind CSS v4 (CSS-first config, no `tailwind.config.js`)
-- three + @react-three/fiber + @react-three/drei (the 3D layer)
-- framer-motion (interface animations)
-- lucide-react (icons)
+## Featured work
 
-That's it — no state library, no UI kit, no backend.
+- **Xenonium Engine** — A game engine built from scratch in modern C++.
+- **At Stake** — A horror game in development on the Xenonium Engine.
+- **Minecraft Prototype** — A C++ voxel game prototype.
+- **Flappy Bird** and **Cookie Clicker** — Classic web games recreated with vanilla HTML, CSS, and JavaScript.
 
-## Commands
+## About me
 
-```bash
-npm install     # once
-npm run dev     # local dev server
-npm run build   # type-check + production build into dist/
-npm run preview # serve the production build locally
-```
+I work across game and engine development, web development, and motion graphics. My toolkit includes C++, React, TypeScript, Express.js, Three.js, and JavaScript. I'm currently focused on Xenonium and At Stake.
 
-## Where to edit what
+## Get in touch
 
-| I want to change…                  | Go to…                          |
-| ---------------------------------- | ------------------------------- |
-| Any text, project, skill, link     | `src/data/content.ts`           |
-| Colors, fonts, glass, grain        | `src/index.css` (`@theme` block)|
-| The 3D shapes                      | `src/components/Scene.tsx`      |
-| A section's layout                 | `src/components/<Section>.tsx`  |
+- Email: [contact@gustavozeta.me](mailto:contact@gustavozeta.me)
+- Instagram: [@_gustavozeta](https://www.instagram.com/_gustavozeta)
+- Discord: `gustavozeta`
 
-## How it's organized
+## Built with
 
-- `src/data/content.ts` — **single source of truth** for all content.
-- `src/components/` — one component per section, single responsibility.
-- `src/components/ui/` — tiny composable primitives (Reveal, SectionHeading, Chip, Marquee).
-- `src/components/Scene.tsx` — the only file that touches three.js.
-- `src/lib/motion.ts` — shared easing curve.
+React, TypeScript, Vite, Tailwind CSS, Three.js, React Three Fiber, Drei, Framer Motion, and Lucide.
