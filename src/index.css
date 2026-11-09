@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------------------
+   Design tokens — the whole brand lives here.
+   Change a hex or a font below and every component follows.
+--------------------------------------------------------------------------- */
+@theme {
+  /* Typography: sharp structured sans + soft organic serif */
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Fraunces", ui-serif, Georgia, serif;
+
+  /* Obsidian — a light black with a blue undertone */
+  --color-obsidian-950: #07090f;
+  --color-obsidian-900: #0b0d13;
+  --color-obsidian-800: #12151f;
+  --color-obsidian-700: #1a1e2c;
+
+  /* Bone — warm off-white, the organic counterpart to the cold background */
+  --color-bone-100: #eceae3;
+  --color-bone-300: #c8c6bf;
+
+  /* Mist — muted blue-grey for secondary text */
+  --color-mist-300: #a6adc0;
+  --color-mist-400: #8a93a8;
+  --color-mist-500: #626a7d;
+
+  /* Signal — the accent red */
+  --color-signal-300: #ff8589;
+  --color-signal-400: #ff5a5f;
+  --color-signal-500: #e5484d;
+  --color-signal-600: #c33940;
+
+  /* Motion */
+  --animate-marquee: marquee 42s linear infinite;
+
+  @keyframes marquee {
+    to {
+      transform: translateX(-50%);
+    }
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-obsidian-900 font-display text-bone-100 antialiased;
+  }
+
+  ::selection {
+    @apply bg-signal-500 text-obsidian-950;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-signal-400;
+  }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-obsidian-700) transparent;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
+
+@layer components {
+  /* Frosted glass — the signature material of the site.
+     Hairline border + inner top highlight + deep drop shadow. */
+  .glass {
+    @apply border border-white/10 bg-white/[0.05] backdrop-blur-xl;
+    box-shadow:
+      inset 0 1px 0 0 rgb(255 255 255 / 0.08),
+      0 24px 60px -24px rgb(0 0 0 / 0.6);
+  }
+
+  /* Heavier glass, for full-screen surfaces (mobile menu). */
+  .glass-deep {
+    @apply border border-white/10 bg-obsidian-900/60 backdrop-blur-2xl;
+    box-shadow:
+      inset 0 1px 0 0 rgb(255 255 255 / 0.08),
+      0 24px 60px -24px rgb(0 0 0 / 0.6);
+  }
+
+  /* Film grain — texture so flat surfaces never look flat. */
+  .grain {
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    pointer-events: none;
+    opacity: 0.045;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+}
